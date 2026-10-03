@@ -7,8 +7,9 @@ import userRouter from './routes/userRoute.js'
 import productRouter from './routes/productRoute.js'
 import cartRouter from './routes/cartRouter.js'
 import orderRouter from './routes/orderRoute.js'
+
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 10000
 connectDB()
 connectCloudinary()
 
@@ -21,4 +22,6 @@ app.use('/api/cart', cartRouter)
 app.use('/api/order', orderRouter)
 app.get('/', (req, res) => res.send('API Working'))
 
-app.listen(port, () => console.log('Server started on PORT: ' + port))
+app.listen(port, '0.0.0.0', () => {
+    console.log('Server started on PORT: ' + port)
+})
